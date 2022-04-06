@@ -3,6 +3,9 @@
 //
 //  Created by infinity on 13.12.2021.
 //
+//  MIT License
+//  https://github.com/autouse/swift
+//
 
 import UIKit
 
@@ -41,12 +44,16 @@ extension UIView {
         
     }
     
-    func pin(left: CGFloat, right: CGFloat) {
+    func pin(left: CGFloat? = nil, right: CGFloat? = nil) {
         guard let superview = superview else {
             return
         }
-        leftAnchor.constraint(equalTo: superview.leftAnchor, constant: left).isActive = true
-        rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -right).isActive = true
+        if let left = left {
+            leftAnchor.constraint(equalTo: superview.leftAnchor, constant: left).isActive = true
+        }
+        if let right = right {
+            rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -right).isActive = true
+        }
     }
     
     func pin(top: CGFloat? = nil, topSafe: CGFloat? = nil, bottom: CGFloat? = nil, bottomSafe: CGFloat? = nil) {
