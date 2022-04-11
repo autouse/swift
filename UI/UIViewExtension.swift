@@ -17,6 +17,10 @@ extension UIView {
         view.addSubview(self)
     }
     
+    func aspect(_ ratio: CGFloat) {
+        widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio).isActive = true
+    }
+    
     func center(x: CGFloat? = nil, y: CGFloat? = nil, xRatio: CGFloat? = nil, yRatio: CGFloat? = nil) {
         guard let superview = superview else {
             return
